@@ -9,6 +9,6 @@ console.log(controller)
 
  router.route("/addemployee").post(controller.addEmployee);
 
-router.route("/remove/:id").delete(controller.removeemployee);
+//router.route("/remove/:id").delete(controller.removeemployee);
 
 module.exports = router; 
