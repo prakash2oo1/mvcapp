@@ -56,44 +56,44 @@ exports.addEmployee=(req,res)=>{
       })
 }
 
-exports.remove=(req,res)=>{
-    console.log("removing employee")
-    console.log(req.params.id)
+// exports.remove=(req,res)=>{
+//     console.log("removing employee")
+//     console.log(req.params.id)
 
-    const empid = req.params.id*1 // converting string id to int
-    console.log(empid)
-    const position = employees.findIndex(emp=>emp.id===empid) // matching the employee id and getting its postion
-    if(empid>employees.length)
-         {
-            res.status(404).json(
-                {
-                status:"Invalid id",
-                desc: "Employee id is not valid please check again"
-            })
-         }
+//     const empid = req.params.id*1 // converting string id to int
+//     console.log(empid)
+//     const position = employees.findIndex(emp=>emp.id===empid) // matching the employee id and getting its postion
+//     if(empid>employees.length)
+//          {
+//             res.status(404).json(
+//                 {
+//                 status:"Invalid id",
+//                 desc: "Employee id is not valid please check again"
+//             })
+//          }
 
-    employees.splice(position,1)
+//     employees.splice(position,1)
 
-    fs.writeFile(`${path}`,JSON.stringify(employees),
-    (err)=>{
-       if(err) {
-          res.status(404).json(
-              {
-                  "msg":"failed to remove employee",
-                  "error":err
-              }
-          )
-       }
-       else{
-           res.status(202).json(
-          {
-              status:"deleted",
-              msg:"Employee removed successfully"
-          }
-       )
+//     fs.writeFile(`${path}`,JSON.stringify(employees),
+//     (err)=>{
+//        if(err) {
+//           res.status(404).json(
+//               {
+//                   "msg":"failed to remove employee",
+//                   "error":err
+//               }
+//           )
+//        }
+//        else{
+//            res.status(202).json(
+//           {
+//               status:"deleted",
+//               msg:"Employee removed successfully"
+//           }
+//        )
 
-       }
-    })
+//        }
+//     })
 
     
-}
+// }
